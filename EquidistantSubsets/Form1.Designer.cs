@@ -45,16 +45,17 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(919, 40);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(226, 795);
+            this.textBox1.Size = new System.Drawing.Size(78, 795);
             this.textBox1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(991, 12);
+            this.label1.Location = new System.Drawing.Point(919, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 25);
             this.label1.TabIndex = 2;
@@ -62,9 +63,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(920, 842);
+            this.button1.Location = new System.Drawing.Point(919, 842);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 70);
+            this.button1.Size = new System.Drawing.Size(79, 70);
             this.button1.TabIndex = 3;
             this.button1.Text = "Go";
             this.button1.UseVisualStyleBackColor = true;
@@ -74,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 924);
+            this.ClientSize = new System.Drawing.Size(1010, 924);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);

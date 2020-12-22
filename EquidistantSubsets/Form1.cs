@@ -7,24 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 /* TEST:
 
 
--27
+7
 -15
+8
 -9
--9
--15
+6
 -33
-12
+10
 12
 6
 27
 27
 21
--9
+6
 -21
 27
 6
@@ -85,6 +86,10 @@ namespace EquidistantSubsets
 
         public void DrawPoints()
         {
+            //чтение из файла
+            string content = System.IO.File.ReadAllText(@"input.txt");
+            textBox1.Text = content;
+
             //отметим точки
             pen = new Pen(Color.Orange, 2);
             string[] lines_points = textBox1.Lines;
@@ -110,7 +115,8 @@ namespace EquidistantSubsets
         public void SortPoints()
         {
             //упорядочиваем список точек по возрастанию Х (если Х совпадает, то по У)
-            allPoints = allPoints.OrderBy(p => p.X).ThenBy(p => p.Y).ToList();
+            //allPoints = allPoints.OrderBy(p => p.X).ThenBy(p => p.Y).ToList();
+            BubbleSort();
 
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!отладка!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             Console.WriteLine("All Points:");
@@ -217,7 +223,31 @@ namespace EquidistantSubsets
 
             DrawGrid();
 
-            DrawPoints();                        
+            DrawPoints();
+        }
+
+        public void BubbleSort()
+        {
+            Point temp;
+            for (int i = 0; i < allPoints.Count(); i++)
+            {
+                for (int j = i + 1; j < allPoints.Count(); j++)
+                {
+                    if (allPoints[i].X > allPoints[j].X)
+                    {
+                        temp = allPoints[i];
+                        allPoints[i] = allPoints[j];
+                        allPoints[j] = temp;
+                    }
+                    else
+                        if (allPoints[i].X == allPoints[j].X && allPoints[i].Y > allPoints[j].Y)
+                        {
+                            temp = allPoints[i];
+                            allPoints[i] = allPoints[j];
+                            allPoints[j] = temp;
+                        }
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
