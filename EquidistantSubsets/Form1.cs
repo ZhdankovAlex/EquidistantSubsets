@@ -206,6 +206,12 @@ namespace EquidistantSubsets
                     Point3 = new Point(Mid.X + Z / 2 + 1, Mid.Y - Ymax + Ymin);
             }
 
+            //если все точки на одной горизонтальной прямой, то скорректируем положение итоговой прямой
+            if (Point2.Y == Point3.Y)
+            {
+                Point2.Y -= 1;
+            }
+
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!отладка!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             Console.WriteLine("Point2: " + Point2);
             Console.WriteLine("Point3: " + Point3);
