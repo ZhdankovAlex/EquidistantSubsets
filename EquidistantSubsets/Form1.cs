@@ -49,8 +49,10 @@ namespace EquidistantSubsets
         int Ymin;
         int Ymax;
 
+        int size;
+
         //массив всех точек
-        List<Point> allPoints = new List<Point>() { };
+        Point[] allPoints;
         
         public Form1()
         {
@@ -94,10 +96,12 @@ namespace EquidistantSubsets
             pen = new Pen(Color.Orange, 2);
             string[] lines_points = textBox1.Lines;
             Point currentPoint;
-            for (int i = 0; i < lines_points.Length; i += 2)
+            size = int.Parse(lines_points[0]);
+            allPoints = new Point[size];
+            for (int i = 1; i < lines_points.Length; i += 2)
             {
                 currentPoint = new Point(int.Parse(lines_points[i]), int.Parse(lines_points[i + 1]));
-                allPoints.Add(currentPoint);
+                allPoints[i / 2] = currentPoint;
                 drawArea.DrawEllipse(pen, Center.X + currentPoint.X * 5 - 1, Center.Y - currentPoint.Y * 5 - 1, 2, 2);
 
                 if (Ymin > currentPoint.Y)
@@ -235,7 +239,6 @@ namespace EquidistantSubsets
             Center = new Point(pictureBox1.Width / 2, pictureBox1.Height / 2);
             Ymin = pictureBox1.Height;
             Ymax = 0;
-            allPoints = new List<Point>() { };
 
             DrawGrid();
 
