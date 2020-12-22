@@ -211,7 +211,23 @@ namespace EquidistantSubsets
         {
             //рисуем нашу прямую
             pen = new Pen(Color.LimeGreen, 2);
-            drawArea.DrawLine(pen, Center.X + Point2.X * 5, Center.Y - Point2.Y * 5, Center.X + Point3.X * 5, Center.Y - Point3.Y * 5);
+            drawArea.DrawLine(pen, Center.X + Point2.X * 5, Center.Y - Point2.Y * 5, 
+                                   Center.X + Point3.X * 5, Center.Y - Point3.Y * 5);
+            Console.WriteLine("Параметрическое уравнение прямой: ");
+            if (Point2.X == Point3.X)
+            {
+                Console.WriteLine("x = " + Point2.X);
+            }
+            else
+            if (Point2.Y == Point3.Y)
+            {
+                Console.WriteLine("y = " + Point2.Y);
+            }
+            else
+            {
+                Console.WriteLine("(x - " + Point3.X + ")/" + (Point3.X - Point2.X) + 
+                                  " = (x - " + Point3.Y + ")/" + (Point3.X - Point2.Y));
+            }            
         }
 
         public void Initialize()
